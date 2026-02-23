@@ -1,6 +1,6 @@
 # 🏠 EasyColoc Manager
 
-**EasyColoc Manager** is a web application designed to simplify life in shared apartments. Managing money between roommates is often a source of tension — this app removes that friction entirely.
+**EasyColoc Manager** is a web application designed to simplify life in shared apartments. Managing money between roommates is often a source of tension this app removes that friction entirely.
 
 ---
 
