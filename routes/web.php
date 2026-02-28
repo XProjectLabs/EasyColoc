@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ColocationController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ProfileController;
@@ -50,3 +51,16 @@ Route::post('/colocations/{colocation}/invite', [InvitationController::class, 's
 Route::get('/invitations/accept/{token}', [InvitationController::class, 'accept'])
     ->name('invitations.accept');
 
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/categories', [CategoryController::class, 'index'])
+                ->name('categories.index');
+
+    Route::post('/categories', [CategoryController::class, 'store'])
+                ->name('categories.store');
+
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])
+                ->name('categories.destroy');
+
+        });
