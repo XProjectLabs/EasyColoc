@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
         'role',
         'is_admin',
+        'reputation',
+        'is_banned',
     ];
 
     /**
@@ -56,5 +58,10 @@ class User extends Authenticatable
     return $this->belongsToMany(Colocation::class, 'memberships')
                 ->withPivot('role', 'joined_at', 'left_at')
                 ->withTimestamps();
+    }
+
+    public function isAdmin()
+    {
+    return $this->role === 'admin';
     }
 }
