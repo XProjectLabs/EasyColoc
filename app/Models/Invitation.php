@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invitation extends Model
 {
-    //
+    protected $fillable = [
+    'email',
+    'token',
+    'status',
+    'colocation_id',
+    'expires_at'
+];
 }

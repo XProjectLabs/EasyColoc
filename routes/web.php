@@ -4,6 +4,7 @@ use App\Http\Controllers\ColocationController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InvitationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,3 +34,19 @@ Route::prefix('colocations/{colocation}')->group(function () {
     Route::get('/expenses/create', [ExpenseController::class, 'create'])->name('expenses.create');
     Route::post('/expenses', [ExpenseController::class, 'store'])->name('expenses.store');
 });
+
+
+Route::get('/colocations/{colocation}/balances', [ColocationController::class, 'balances'])
+    ->name('colocations.balances');
+
+Route::get('/colocations/{colocation}/settlements', [ColocationController::class, 'settlements'])
+    ->name('colocations.settlements');
+
+
+
+Route::post('/colocations/{colocation}/invite', [InvitationController::class, 'store'])
+    ->name('invitations.store');
+
+Route::get('/invitations/accept/{token}', [InvitationController::class, 'accept'])
+    ->name('invitations.accept');
+
